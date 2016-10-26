@@ -5,21 +5,23 @@ block content
     .container
       .jumbotron.text-center
         h1 Edit Customer
-      
-      form(action='/customer' method='post')
+
+      form(action='/customer/#{customer._id}/edit' method='post')
         .form-group
           label.control-label(for='name') Name
-          input#name.form-control(type='text', name='name' value='')
+          input#name.form-control(type='text', name='name' value='#{customer.name}')
         .form-group
           label.control-label(for='member_id') Member_ID
-          input#member_id.form-control(type='text', name='member_id' value='')
+          input#member_id.form-control(type='text', name='member_id' value='#{customer.memberid}')
         .form-group
           label.control-label(for='address') Address
-          input#address.form-control(type='text', name='address' value='')
+          input#address.form-control(type='text', name='address' value='#{customer.address}')
+        .form-group
+          label.control-label(for='zipcode') Zipcode
+          input#address.form-control(type='text', name='zipcode' value='#{customer.zipcode}')
         .form-group
           label.control-label(for='phone') Phone
-          input#phone.form-control(type='text', name='phone' value='')
-            
+          input#phone.form-control(type='text', name='phone' value='#{customer.phone}')
+
         .form-group
           button.btn.btn-primary(type="submit") Submit
-        
