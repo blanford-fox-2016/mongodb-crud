@@ -1,6 +1,5 @@
 let Model = require('../models/Book')
 
-
 let getAllData = (req, res, next) => {
   Model.find({}, (err, books) => {
     if (err) {
@@ -69,7 +68,7 @@ let deleteData = (req, res, next) => {
           console.log(err);
         } else {
           console.log(`Data has been deleted!`);
-          res.render('index')
+          res.redirect('/book')
         }
       })
     }
@@ -81,7 +80,15 @@ let menu = (req, res, next) => {
 }
 
 let formNewData = (req, res, next) => {
-  res.render('add_book', {title: "Book's Management"})
+  console.log(`test`);
+  res.send('ini add book')
+  // res.render('add_book', {title: "Book's Management"})
+}
+
+let formEditData = (req, res, next) => {
+  Model.findById(req.params.id, (err, books) => {
+    res.render('edit_book', {title: "Book's Management", books: books})
+  })
 }
 
 module.exports = {
@@ -91,5 +98,6 @@ module.exports = {
   editData: editData,
   deleteData: deleteData,
   menu: menu,
-  formNewData, formNewData
+  formNewData: formNewData,
+  formEditData: formEditData
 }
