@@ -5,8 +5,14 @@ var mongoose = require('mongoose')
 var Book = require('../models/book')
 
 /* GET home page. */
-router.get('/', function (req, res) {
-  res.render('index', {title: "Home"})
-});
+router.get('/', controller.getBook);
+
+router.post('/', controller.addBook)
+
+router.get('/delete/:id', controller.deleteBook)
+
+router.get('/edit/:id', controller.getEditBook)
+
+router.post('/update', controller.updateBook)
 
 module.exports = router;

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../head.ejs %>
+
+<body>
+
+
+<div class="container">
+    <h1 class="text-center"><%= title %></h1>
+
+    <form class="form-horizontal" method="post" action="/books">
+        <div class="form-group">
+            <label class="control-label col-sm-2">ISBN:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="isbn">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Title:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Author:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="author">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Category:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="category">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Stock:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="stock">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <tr>
+            <td>Id</td>
+            <td>Member Id</td>
+            <td>Days</td>
+            <td>Out Date</td>
+            <td>Due Date</td>
+            <td>In Date</td>
+            <td>Fine</td>
+            <td>Action</td>
+        </tr>
+
+        <% for (var i = 0; i < transactions.length; i++) {%>
+        <tr>
+            <td><%= transactions[i]._id%></td>
+            <td><%= transactions[i].member_id%></td>
+            <td><%= transactions[i].days%></td>
+            <td><%= transactions[i].out_date%></td>
+            <td><%= transactions[i].due_date%></td>
+            <td><%= transactions[i].in_date%></td>
+            <td><%= transactions[i].fine%></td>
+            <td>
+            <% for (var j = 0; j < transactions[i].booklist.length; j++) {%>
+                ISBN <span><%= transactions[i].booklist[j].isbn%></span>
+                QTY <span><%= transactions[i].booklist[j].qty%></span>
+            <% } %>
+            </td>
+
+            <td>
+                <a href="/books/edit/<%= transactions[i].id%>" class="btn btn-warning">Edit</a>
+                <a href="/books/delete/<%= transactions[i].id%>" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+
+    </table>
+
+</div>
+
+
+
+<% include ../scripts.ejs %>
+
+</body>
+</html>
