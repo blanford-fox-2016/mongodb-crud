@@ -11,11 +11,12 @@ block content
         thead
           tr
             th #
-            th ISBN
-            th Title
-            th Author
-            th Category
-            th Stock
+            th Member_ID
+            th Days
+            th Out
+            th Due
+            th In
+            th Fine
             th Action
         tbody
           tr
@@ -24,8 +25,9 @@ block content
             td Perjalanan Manusia Tamvan
             td Mr. Tamvan
             td Biografi
+            td 1000
             td 100
-            th 
+            td 
               a.btn.btn-success(href='book/id' alt='View Details')
                 span.glyphicon.glyphicon-eye-open
               a.btn.btn-warning(href='book/id/edit' alt='Edit')

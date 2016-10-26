@@ -4,18 +4,17 @@ block content
   .row
     .container
       .jumbotron.text-center
-        h1 Books Management
+        h1 Customers Management
   .row
     .container
       table.table.table-striped.table-hover
         thead
           tr
             th #
-            th ISBN
-            th Title
-            th Author
-            th Category
-            th Stock
+            th Name
+            th Member_ID
+            th Address
+            th Phone
             th Action
         tbody
           tr
@@ -24,8 +23,7 @@ block content
             td Perjalanan Manusia Tamvan
             td Mr. Tamvan
             td Biografi
-            td 100
-            th 
+            td 
               a.btn.btn-success(href='book/id' alt='View Details')
                 span.glyphicon.glyphicon-eye-open
               a.btn.btn-warning(href='book/id/edit' alt='Edit')
