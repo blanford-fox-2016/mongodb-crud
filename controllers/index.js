@@ -77,7 +77,7 @@ module.exports = {
         })
     },
 
-    addBook: function (req, res) {
+    addCustomer: function (req, res) {
         var customer = new Customer({
             name: req.body.name,
             member_id: req.body.member_id,
@@ -92,6 +92,17 @@ module.exports = {
         })
     },
 
+    deleteCustomer: function (req, res) {
+        Customer.findOneAndRemove({
+            _id: req.params.id
+        }, function (err) {
+            if (err) err
+
+            res.redirect('/customers')
+
+        })
+    },
+
     getEditCustomer: function (req, res) {
         Customer.findOne({_id: req.params.id}, function(err, customers) {
             if (err) throw err
@@ -99,6 +110,20 @@ module.exports = {
             // object of all the users
             // console.log(books)
             res.render('customers/edit_customer', {title:"Edit Customer", customers:customers})
+        })
+    },
+
+    updateCustomer: function (req, res) {
+        Customer.findByIdAndUpdate(req.body.id, {
+            name: req.body.name,
+            member_id: req.body.member_id,
+            address: req.body.address,
+            zipcode: req.body.zipcode,
+            phone: req.body.phone
+        },function (err, book) {
+            if (err) throw err
+
+            res.redirect('/customers')
         })
     },
 

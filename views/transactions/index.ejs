@@ -11,37 +11,44 @@
 
     <form class="form-horizontal" method="post" action="/books">
         <div class="form-group">
-            <label class="control-label col-sm-2">ISBN:</label>
+            <label class="control-label col-sm-2">Member Id:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="isbn">
+                <input type="text" class="form-control" name="member_id">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Title:</label>
+            <label class="control-label col-sm-2">Days:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="days">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Author:</label>
+            <label class="control-label col-sm-2">Out Date:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="author">
+                <input type="date" class="form-control" name="out_date">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Category:</label>
+            <label class="control-label col-sm-2">Due Date:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="category">
+                <input type="date" class="form-control" name="due_date">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Stock:</label>
+            <label class="control-label col-sm-2">In Date:</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" name="stock">
+                <input type="date" class="form-control" name="in_date">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Fine:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="fine">
             </div>
         </div>
 
@@ -61,6 +68,7 @@
             <td>Due Date</td>
             <td>In Date</td>
             <td>Fine</td>
+            <td>Booklist</td>
             <td>Action</td>
         </tr>
 
