@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MongoCrud</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="center">MongoCrud</h1>
+    <br><br>
+    <div class="container">
+      <!-- form -->
+      <form action="/save" method="post">
+        <div class="form-group">
+          <label for="isbn">isbn</label>
+          <input type="text" name="isbn" class="form-control" placeholder="ex: 1921-12312-12312">
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="form-control" placeholder="ex: The wisdom of toni chen">
+        </div>
+
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" class="form-control" placeholder="ex: Toni Chen">
+        </div>
+
+        <div class="form-group">
+          <label for="category">category</label>
+          <input type="text" name="category" class="form-control" placeholder="ex: New">
+        </div>
+
+        <div class="form-group">
+          <label for="stock">stock</label>
+          <input type="text" name="stock" class="form-control" placeholder="ex: 10">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+      <!-- view data here -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Isbn</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < books.length; i++){ %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td scope="row"><%= books[i].isbn %></td>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].author %></td>
+            <td><%= books[i].category %></td>
+            <td>
+              <form action="/preUpdate" method="post">
+                <input type="hidden" name="isbn" value="<%= books[i].isbn %>">
+                <button type="submit" class="btn btn-warning">Update</button>
+              </form>
+            </td>
+            <td>
+              <form action="/deleted" method="post">
+                <input type="hidden" name="isbn" value="<%= books[i].isbn %>">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
