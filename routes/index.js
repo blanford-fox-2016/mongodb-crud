@@ -11,5 +11,5 @@ router.get('/',Controller.viewAll);
 //delete
 router.post('/delete',Controller.deleteBook);
 router.post('/loadupdate',Controller.loadUpdate);
-// router.post('/update',Controller.updateBook)
+router.post('/update',Controller.updateBook);
 module.exports = router;

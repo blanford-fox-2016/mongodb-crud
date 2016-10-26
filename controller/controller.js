@@ -37,16 +37,27 @@ module.exports = {
     });
   },
   loadUpdate:function(req, res, next) {
-    Book.find({ _id: req.body.update }, function(err, user) {
+    console.log(req.body.update);
+    var test = req.body.update
+    Book.find({ _id: test }, function(err, user) {
       if (err) throw err;
-        res.render('update', {user})
+      console.log(user);
+      res.render('update', {user,test})
     });
   },
   updateBook:function(req, res, next) {
-    Book.find({ _id: req.body.update }, function(err, user) {
-      if (err) throw err;
-        res.render('update', {user})
-    });
+    console.log(req.body.update +"ini test");
+    Book.findByIdAndUpdate(req.body.update,
+    {isbn:req.body.isbn,
+    title:req.body.title,
+    author:req.body.author,
+    category:req.body.category},
+    function(err, data) {
+    if (err) throw err;
+    console.log(data);
+    // we have the updated user returned to us
+    res.redirect('/')
+  });
   }
   // },
   // deleteBook:functionfunction(req, res, next) {

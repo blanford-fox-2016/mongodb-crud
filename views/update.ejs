@@ -13,24 +13,28 @@
     <title></title>
   </head>
   <body>
-    <h1 class="center">CROD</h1>
-    <div class="container">
+    <h1 class="center">update<%=  user.isbn %></h1>
+    <div class="container" >
       <form  action="/update" method="post">
         <div class="form-group">
           <label for="email" name>isbn:</label>
-          <input type="text" class="form-control" id="email" name="isbn" value="<%= user.isbn %>" >
+          <input type="text" class="form-control" id="email" name="isbn" >
         </div>
         <div class="form-group">
-          <label for="pwd">Title:</label>
-          <input type="text" class="form-control" id="pwd" name ="title" value="<%= user.title %>">
+          <label for="pwd">Title:<%= user.isbn %></label>
+          <input type="text" class="form-control" id="pwd" name ="title" >
         </div>
         <div class="form-group">
           <label for="email">author:</label>
-          <input type="text" class="form-control" id="email" name ="author" value="<%= user.author %>">
+          <input type="text" class="form-control" id="email" name ="author" >
         </div>
         <div class="form-group">
           <label for="pwd">category:</label>
-          <input type="text" class="form-control" id="pwd" name="category" value="<%= user.category %>">
+          <input type="text" class="form-control" id="pwd" name="category" >
+        </div>
+        <div class="form-group">
+          <label for="pwd">id:<%= test %></label>
+          <input type="hidden" class="form-control" id="pwd" name="update" value="<%= test %>">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
