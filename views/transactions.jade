@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Books Management
+  .row
+    .container
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th #
+            th Member_ID
+            th Days
+            th Out
+            th Due
+            th In
+            th Fine
+            th Action
+        tbody
+          tr
+            td 1
+            td 1234WXYZ
+            td Perjalanan Manusia Tamvan
+            td Mr. Tamvan
+            td Biografi
+            td 1000
+            td 100
+            td 
+              a.btn.btn-success(href='book/id' alt='View Details')
+                span.glyphicon.glyphicon-eye-open
+              a.btn.btn-warning(href='book/id/edit' alt='Edit')
+                span.glyphicon.glyphicon-edit
+              a.btn.btn-danger(href='book/id/delete' alt='Delete')
+                span.glyphicon.glyphicon-trash

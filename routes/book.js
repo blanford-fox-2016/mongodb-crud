@@ -9,6 +9,9 @@ router.get('/', controller.getAllData);
 /* Get One Data */
 router.get('/book/:id', controller.getOneData);
 
+/* Form Add New Data */
+router.get('/add', controller.formNewData)
+
 /* Create New Data */
 router.post('/', controller.createNewData)
 

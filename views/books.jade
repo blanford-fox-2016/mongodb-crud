@@ -7,6 +7,7 @@ block content
         h1 Books Management
   .row
     .container
+      a.btn.btn-success(href='/book/add' alt='View Details') Add New Book
       table.table.table-striped.table-hover
         thead
           tr
@@ -16,12 +17,20 @@ block content
             th Author
             th Category
             th Stock
+            th Action
         tbody
           - for(var i = 0 ; i < books.length ; i++)
-            tr
-              td #{i+1}
-              td #{books[i].isbn}
-              td #{books[i].title}
-              td #{books[i].author}
-              td #{books[i].category}
-              td #{books[i].stock}
+              tr
+                td #{i+1}
+                td #{books[i].isbn}
+                td #{books[i].title}
+                td #{books[i].author}
+                td #{books[i].category}
+                td #{books[i].stock}
+                td
+                  a.btn.btn-success(href='#' alt='View Details')
+                    span.glyphicon.glyphicon-eye-open
+                  a.btn.btn-warning(href='book/#{books[i]._id}/edit' alt='Edit')
+                    span.glyphicon.glyphicon-edit
+                  a.btn.btn-danger(href='book/#{books[i]._id}/delete' alt='Delete' onclick="return ")
+                    span.glyphicon.glyphicon-trash

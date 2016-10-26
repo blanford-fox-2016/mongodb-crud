@@ -33,7 +33,8 @@ let createNewData = (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(books);
+      res.redirect('book')
+      // res.json(books);
     }
   })
 }
@@ -79,11 +80,16 @@ let menu = (req, res, next) => {
   res.render('index', {title: "Book's Management"})
 }
 
+let formNewData = (req, res, next) => {
+  res.render('add_book', {title: "Book's Management"})
+}
+
 module.exports = {
   getAllData: getAllData,
   getOneData: getOneData,
   createNewData: createNewData,
   editData: editData,
   deleteData: deleteData,
-  menu: menu
+  menu: menu,
+  formNewData, formNewData
 }
