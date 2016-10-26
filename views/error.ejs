@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CRUD MONGO</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style media="screen">
+      .center{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="center">CROD</h1>
+    <div class="container">
+      <form  action="/save" method="post">
+        <div class="form-group">
+          <label for="email" name>isbn:</label>
+          <input type="text" class="form-control" id="email" name="isbn" >
+        </div>
+        <div class="form-group">
+          <label for="pwd">Title:</label>
+          <input type="text" class="form-control" id="pwd" name ="title">
+        </div>
+        <div class="form-group">
+          <label for="email">author:</label>
+          <input type="text" class="form-control" id="email" name ="author">
+        </div>
+        <div class="form-group">
+          <label for="pwd">category:</label>
+          <input type="text" class="form-control" id="pwd"name="category">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+    <br>
+    <div class="container">
+
+      <!-- tampilan data berbentuk tabel -->
+      <table class="table">
+        <tr>
+          <th>No</th>
+          <th>isbn</th>
+          <th>title</th>
+          <th>author</th>
+          <th>category</th>
+        </tr>
+        <!-- <hr> -->
+        <% for(var i = 0; i < data.length; i++ ){ %>
+        <tr>
+          <td><%= i+1 %> </td>
+            <td><%= data[i].isbn %></td>
+          <td><%= data[i].title %></td>
+          <td><%= data[i].author %></td>
+          <td><%= data[i].category %></td>
+          <td>
+            <form class="" action="/update" method="post">
+              <input type="hidden"  value="<%= data[i]._id %>">
+              <input type="submit" name="name" value="update">
+            </form>
+
+          </td>
+          <td>
+            <form class="" action="/delete" method="post">
+                <input type="hidden" name="name" value="<%= data[i]._id %>">
+                <input type="button" name="name" value="delete">
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+
+
+    </div><!-- end container -->
+
+  </body>
+</html>
