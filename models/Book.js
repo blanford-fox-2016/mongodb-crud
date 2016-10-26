@@ -8,8 +8,8 @@ var booksSchema = new Schema({
   author:   String,
   category: String,
   stock: Number
-},{});
+});
 
-var Book = mongoose.model('Books', booksSchema)
+var books = mongoose.model('books', booksSchema)
 
-//
+module.exports = books

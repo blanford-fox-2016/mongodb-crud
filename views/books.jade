@@ -17,10 +17,11 @@ block content
             th Category
             th Stock
         tbody
-          tr
-            td 1
-            td 1234WXYZ
-            td Perjalanan Manusia Tamvan
-            td Mr. Tamvan
-            td Biografi
-            td 100
+          - for(var i = 0 ; i < books.length ; i++)
+            tr
+              td #{i+1}
+              td #{books[i].isbn}
+              td #{books[i].title}
+              td #{books[i].author}
+              td #{books[i].category}
+              td #{books[i].stock}
