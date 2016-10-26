@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+    .container
+      h2.center Hey Library
+      table.table.table-hover
+        thead
+          tr
+            th ISBN
+            th Title
+            th Author
+            th Category
+            th Stock
+            th Update
+            th Delete
+        each key in data
+          tbody
+            tr
+              td #{key.isbn}
+              td #{key.title}
+              td #{key.author}
+              td #{key.category}
+              td #{key.stock}
+              td
+                a.btn.btn-success(href='/update/#{key.title}', role='button') Update
+              td
+                a.btn.btn-warning(href='/delete/#{key.id}', role='button') Delete
+
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")

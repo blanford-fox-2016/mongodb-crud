@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    form(method='POST', action='/update')
+      .form-group
+        label(for='isbn') ISBN:
+        input#isbn.form-control(type='text', name='isbn', value="#{data[0].isbn}")
+      .form-group
+        label(for='title') Title:
+        input#title.form-control(type='text', name='title', value="#{data[0].title}")
+      .form-group
+        label(for='author') Author:
+        input#author.form-control(type='text', name='author', value="#{data[0].author}")
+      .form-group
+        label(for='category') Category:
+        input#category.form-control(type='text', name='category', value="#{data[0].category}")
+      .form-group
+        label(for='stock') Stock:
+        input#stock.form-control(type='text', name='stock', value="#{data[0].stock}")
+      .form-group
+        button.btn.btn-primary(type='submit') Submit
+
+
+
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
