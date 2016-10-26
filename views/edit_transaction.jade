@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Edit Transaction
+      
+      form(action='/transaction' method='post')
+        .form-group
+          label.control-label(for='member_id') Member_ID
+          input#member_id.form-control(type='text', name='member_id' value='')
+        .form-group
+          label.control-label(for='days') Days
+          input#days.form-control(type='number', name='days' value='')
+        .form-group
+          label.control-label(for='in_date') In Date
+          input#in_date.form-control(type='date', name='in_date' value='')
+        .form-group
+          label.control-label(for='due_date') Due Date
+          input#due_date.form-control(type='date', name='due_date' value='')
+        .form-group
+          label.control-label(for='out_date') Out Date
+          input#out_date.form-control(type='date', name='out_date' value='')
+        .form-group
+          label.control-label(for='fine') Fine
+          input#fine.form-control(type='number', name='fine' value='')
+            
+        .form-group
+          button.btn.btn-primary(type="submit") Submit
+        
