@@ -43,14 +43,8 @@ let editData = (req, res, next) => {
   console.log(req.body);
   Model.update({
       _id: req.params.id
-    },
-    {
-      name: req.body.name,
-      memberid: req.body.member_id,
-      address: req.body.address,
-      zipcode: req.body.zipcode,
-      phone: req.body.phone
-    }, (err, customer) => {
+    }, req.body,
+     (err, customer) => {
       if (err) {
         console.log(err);
       } else {

@@ -41,18 +41,12 @@ let createNewData = (req, res, next) => {
 let editData = (req, res, next) => {
   Model.update({
       _id: req.params.id
-    },
-    {
-      isbn: req.body.isbn,
-      title: req.body.title,
-      author: req.body.author,
-      category: req.body.category,
-      stock: req.body.stock
-    }, (err, books) => {
+    }, req.body,
+     (err, books) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(`${books.name} has been updated!`);
+        console.log(`${books} has been updated!`);
         // res.json(books)
         res.redirect('/book')
     }
