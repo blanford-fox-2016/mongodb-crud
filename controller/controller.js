@@ -25,6 +25,28 @@ module.exports = {
       console.log(data);
       res.render('error', {data})
     });
+  },
+  deleteBook:function(req, res, next) {
+    Book.findByIdAndRemove({ _id:req.body.delete }, function(err) {
+      if (err) throw err;
+      Book.find({}, function(err, data) {
+        if (err) throw err;
+        console.log(data);
+        res.render('error', {data})
+      });
+    });
+  },
+  loadUpdate:function(req, res, next) {
+    Book.find({ _id: req.body.update }, function(err, user) {
+      if (err) throw err;
+        res.render('update', {user})
+    });
+  },
+  updateBook:function(req, res, next) {
+    Book.find({ _id: req.body.update }, function(err, user) {
+      if (err) throw err;
+        res.render('update', {user})
+    });
   }
   // },
   // deleteBook:functionfunction(req, res, next) {

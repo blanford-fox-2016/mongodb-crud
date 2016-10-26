@@ -56,21 +56,20 @@
         <% for(var i = 0; i < data.length; i++ ){ %>
         <tr>
           <td><%= i+1 %> </td>
-            <td><%= data[i].isbn %></td>
+            <td><%= data[i]._id %></td>
           <td><%= data[i].title %></td>
           <td><%= data[i].author %></td>
           <td><%= data[i].category %></td>
           <td>
-            <form class="" action="/update" method="post">
-              <input type="hidden"  value="<%= data[i]._id %>">
-              <input type="submit" name="name" value="update">
+            <form class="" action="/loadUpdate" method="post">
+              <input type="hidden"  name="update" value="<%= data[i]._id %>">
+              <input type="submit"  value="update">
             </form>
-
           </td>
           <td>
             <form class="" action="/delete" method="post">
-                <input type="hidden" name="name" value="<%= data[i]._id %>">
-                <input type="button" name="name" value="delete">
+                <input type="hidden" name="delete" value="<%= data[i]._id %>">
+                <input type="submit" value="delete">
             </form>
           </td>
         </tr>
