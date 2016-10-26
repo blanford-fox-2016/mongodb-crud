@@ -7,7 +7,7 @@ let getAllData = (req, res, next) => {
       console.log(err);
     } else {
       // res.json(customer);
-      res.render('customers', {title: "Book's Management", customers: customers})
+      res.render('customers/customers', {title: "Book's Management", customers: customers})
     }
   })
 }
@@ -74,7 +74,7 @@ let deleteData = (req, res, next) => {
 
 let formEditData = (req, res, next) => {
   Model.findById(req.params.id, (err, customer) => {
-    res.render('edit_customer', {title: "Book's Management", customer: customer})
+    res.render('customers/edit_customer', {title: "Book's Management", customer: customer})
   })
 }
 
@@ -84,7 +84,7 @@ let formNewData = (req, res, next) => {
       console.log(err);
     } else {
       // res.json(customer);
-      res.render('add_customer', {title: "Book's Management", customers: customers})
+      res.render('customers/add_customer', {title: "Book's Management", customers: customers})
     }
   })
 }

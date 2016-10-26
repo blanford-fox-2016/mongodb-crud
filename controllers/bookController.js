@@ -6,7 +6,7 @@ let getAllData = (req, res, next) => {
       console.log(err);
     } else {
       // res.json(books);
-      res.render('books', {title: "Book's Management", books: books})
+      res.render('books/books', {title: "Book's Management", books: books})
     }
   })
 }
@@ -77,12 +77,12 @@ let menu = (req, res, next) => {
 
 let formNewData = (req, res, next) => {
   console.log(`asdf`);
-  res.render('add_book', {title: "Book's Management"})
+  res.render('books/add_book', {title: "Book's Management"})
 }
 
 let formEditData = (req, res, next) => {
   Model.findById(req.params.id, (err, books) => {
-    res.render('edit_book', {title: "Book's Management", books})
+    res.render('books/edit_book', {title: "Book's Management", books})
   })
 }
 
