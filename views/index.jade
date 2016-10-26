@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    p Welcome to #{title}
+  .container
+    form(method='POST', action='/create')
+      .form-group
+        label(for='isbn') ISBN:
+        input#isbn.form-control(type='text', name='isbn')
+      .form-group
+        label(for='title') Title:
+        input#title.form-control(type='text', name='title')
+      .form-group
+        label(for='author') Author:
+        input#author.form-control(type='text', name='author')
+      .form-group
+        label(for='category') Category:
+        input#category.form-control(type='text', name='category')
+      .form-group
+        label(for='stock') Stock:
+        input#stock.form-control(type='text', name='stock')
+      .form-group
+        button.btn.btn-primary(type='submit') Submit
+
+
+
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
