@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../head.ejs %>
+
+<body>
+
+
+<div class="container">
+    <h1 class="text-center"><%= title %></h1>
+
+    <form class="form-horizontal" method="post" action="/customers">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Member Id:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="member_id">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Address:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="address">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Zipcode:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="zipcode">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Phone:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="phone">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Member Id</td>
+            <td>Address</td>
+            <td>Zipcode</td>
+            <td>Phone</td>
+            <td>Action</td>
+        </tr>
+
+        <% for (var i = 0; i < customers.length; i++) {%>
+        <tr>
+            <td><%= customers[i]._id%></td>
+            <td><%= customers[i].name%></td>
+            <td><%= customers[i].member_id%></td>
+            <td><%= customers[i].address%></td>
+            <td><%= customers[i].zipcode%></td>
+            <td><%= customers[i].phone%></td>
+            <td>
+                <a href="/customers/edit/<%= customers[i]._id%>" class="btn btn-warning">Edit</a>
+                <a href="/customers/delete/<%= customers[i]._id%>" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+
+    </table>
+
+</div>
+
+
+
+<% include ../scripts.ejs %>
+
+</body>
+</html>
