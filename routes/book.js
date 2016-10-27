@@ -26,4 +26,6 @@ router.get('/:id/delete', controller.deleteData);
 /* Get One Data */
 router.get('/:id', controller.getOneData);
 
+
+
 module.exports = router;
