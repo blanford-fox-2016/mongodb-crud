@@ -12,6 +12,7 @@ let getAllData = (req, res, next) => {
 }
 
 let getOneData = (req, res, next) => {
+  console.log(`sadfasdf`);
   Model.findById(req.params.id, (err, books) => {
     if (err) {
       console.log(err);
