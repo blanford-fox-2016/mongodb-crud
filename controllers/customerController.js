@@ -3,6 +3,7 @@ let Model = require('../models/Customer')
 
 let getAllData = (req, res, next) => {
   Model.find({}, (err, customers) => {
+    console.log(`test : ${customers}`);
     if (err) {
       console.log(err);
     } else {
