@@ -5,8 +5,8 @@ let getAllData = (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      res.json(books);
-      // res.render('books/books', {title: "Book's Management", books: books})
+      // res.json(books);
+      res.render('books/books', {title: "Book's Management", books: books})
     }
   }).sort({_id: -1})
 }
