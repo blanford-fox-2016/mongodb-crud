@@ -5,9 +5,9 @@ var Schema = mongoose.Schema;
 var transactionsSchema = new Schema({
   memberid: String,
   days: Number,
-  out_date: new Date(ISODate().getTime()),
-  due_date: new Date(ISODate().getTime()),
-  in_date: new Date(ISODate().getTime()),
+  out_date: { type: Date, default: Date.now },
+  due_date: { type: Date, default: Date.now },
+  in_date: { type: Date, default: Date.now },
   fine: Number,
   booklist: [
     {isbn: String, qty: Number},

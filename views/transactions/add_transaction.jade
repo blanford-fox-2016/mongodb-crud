@@ -1,11 +1,11 @@
-extends layout
+extends ../layout
 
 block content
   .row
     .container
       .jumbotron.text-center
         h1 Add New Transaction
-      
+
       form(action='/transaction' method='post')
         .form-group
           label.control-label(for='member_id') Member_ID
@@ -25,7 +25,6 @@ block content
         .form-group
           label.control-label(for='fine') Fine
           input#fine.form-control(type='number', name='fine')
-            
+
         .form-group
           button.btn.btn-primary(type="submit") Submit
-        
