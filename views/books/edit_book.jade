@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Edit New Book
+
+      form(action='/book/#{books.id}/edit' method='post')
+        .form-group
+          label.control-label(for='ISBN') ISBN
+          input#ISBN.form-control(type='text', name='isbn' value='#{books.isbn}')
+        .form-group
+          label.control-label(for='title') Title
+          input#title.form-control(type='text', name='title' value='#{books.title}')
+        .form-group
+          label.control-label(for='author') Author
+          input#author.form-control(type='text', name='author' value='#{books.author}')
+        .form-group
+          label.control-label(for='category') Category
+          input#category.form-control(type='text', name='category' value='#{books.category}')
+        .form-group
+          label.control-label(for='stock') Stock
+          input#stock.form-control(type='number', name='stock' value='#{books.stock}')
+        //- .form-group
+        //-   input(type='hidden', name='_method', value='put')
+
+        .form-group
+          button.btn.btn-primary(type="submit") Submit

@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Add New Customer
+
+      form(action='/customer/add' method='post')
+        .form-group
+          label.control-label(for='name') Name
+          input#name.form-control(type='text', name='name')
+        .form-group
+          label.control-label(for='member_id') Member_ID
+          input#member_id.form-control(type='text', name='member_id')
+        .form-group
+          label.control-label(for='address') Address
+          input#address.form-control(type='text', name='address')
+        .form-group
+          label.control-label(for='zipcode') Zipcode
+          input#zipcode.form-control(type='text', name='zipcode')
+        .form-group
+          label.control-label(for='phone') Phone
+          input#phone.form-control(type='text', name='phone')
+
+        .form-group
+          button.btn.btn-primary(type="submit") Submit
