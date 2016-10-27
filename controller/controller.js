@@ -14,8 +14,7 @@ module.exports = {
       if (err) throw err;
       Book.find({}, function(err, data) {
         if (err) throw err;
-        console.log(data);
-        res.render('error', {data, hasil:"data "})
+        res.render('home', {data:data, hasil:"data "})
       });
     });
   },
@@ -23,7 +22,7 @@ module.exports = {
     Book.find({}, function(err, data) {
       if (err) throw err;
       console.log(data);
-      res.render('error', {data})
+      res.render('home', {data})
     });
   },
   deleteBook:function(req, res, next) {
@@ -31,8 +30,7 @@ module.exports = {
       if (err) throw err;
       Book.find({}, function(err, data) {
         if (err) throw err;
-        console.log(data);
-        res.render('error', {data})
+        res.render('home', {data:data})
       });
     });
   },
@@ -41,12 +39,10 @@ module.exports = {
     var test = req.body.update
     Book.find({ _id: test }, function(err, user) {
       if (err) throw err;
-      console.log(user);
-      res.render('update', {user,test})
+      res.render('update', {user:user,test:test})
     });
   },
   updateBook:function(req, res, next) {
-    console.log(req.body.update +"ini test");
     Book.findByIdAndUpdate(req.body.update,
     {isbn:req.body.isbn,
     title:req.body.title,
@@ -54,7 +50,6 @@ module.exports = {
     category:req.body.category},
     function(err, data) {
     if (err) throw err;
-    console.log(data);
     // we have the updated user returned to us
     res.redirect('/')
   });
