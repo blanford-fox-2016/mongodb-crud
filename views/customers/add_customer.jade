@@ -6,7 +6,7 @@ block content
       .jumbotron.text-center
         h1 Add New Customer
 
-      form(action='/customer' method='post')
+      form(action='/customer/add' method='post')
         .form-group
           label.control-label(for='name') Name
           input#name.form-control(type='text', name='name')
@@ -25,31 +25,3 @@ block content
 
         .form-group
           button.btn.btn-primary(type="submit") Submit
-  .row
-    .container
-      table.table.table-striped.table-hover
-        thead
-          tr
-            th #
-            th Name
-            th Member_ID
-            th Address
-            th zipcode
-            th Phone
-            th Action
-        tbody
-          - for(var i = 0 ; i < customers.length ; i++)
-              tr
-                td #{i+1}
-                td #{customers[i].name}
-                td #{customers[i].memberid}
-                td #{customers[i].address}
-                td #{customers[i].zipcode}
-                td #{customers[i].phone}
-                td
-                  a.btn.btn-success(href='#' alt='View Details')
-                    span.glyphicon.glyphicon-eye-open
-                  a.btn.btn-warning(href='/customer/#{customers[i]._id}/edit' alt='Edit')
-                    span.glyphicon.glyphicon-edit
-                  a.btn.btn-danger(href='/customer/#{customers[i]._id}/delete' alt='Delete' onclick="return confirm('Are you sure?')")
-                    span.glyphicon.glyphicon-trash

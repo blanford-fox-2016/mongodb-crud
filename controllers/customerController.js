@@ -1,7 +1,8 @@
 let Model = require('../models/Customer')
-
+let mongoose = require('mongoose')
 
 let getAllData = (req, res, next) => {
+  console.log(`test all data`);
   Model.find({}, (err, customers) => {
     console.log(`test : ${customers}`);
     if (err) {
@@ -10,10 +11,11 @@ let getAllData = (req, res, next) => {
       // res.json(customer);
       res.render('customers/customers', {title: "Book's Management", customers: customers})
     }
-  })
+  }).sort({_id: -1})
 }
 
 let getOneData = (req, res, next) => {
+
   Model.findById(req.params.id, (err, customer) => {
     if (err) {
       console.log(err);
@@ -80,14 +82,7 @@ let formEditData = (req, res, next) => {
 }
 
 let formNewData = (req, res, next) => {
-  Model.find({}, (err, customers) => {
-    if (err) {
-      console.log(err);
-    } else {
-      // res.json(customer);
-      res.render('customers/add_customer', {title: "Book's Management", customers: customers})
-    }
-  })
+  res.render('customers/add_customer', {title: "Book's Management"})
 }
 
 module.exports = {

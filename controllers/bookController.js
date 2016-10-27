@@ -8,7 +8,7 @@ let getAllData = (req, res, next) => {
       // res.json(books);
       res.render('books/books', {title: "Book's Management", books: books})
     }
-  })
+  }).sort({_id: -1})
 }
 
 let getOneData = (req, res, next) => {
@@ -32,7 +32,7 @@ let createNewData = (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
-      res.redirect('book')
+      res.redirect('/book')
       // res.json(books);
     }
   })
@@ -76,7 +76,6 @@ let menu = (req, res, next) => {
 }
 
 let formNewData = (req, res, next) => {
-  console.log(`asdf`);
   res.render('books/add_book', {title: "Book's Management"})
 }
 
