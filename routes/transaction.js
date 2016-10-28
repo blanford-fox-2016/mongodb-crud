@@ -6,11 +6,11 @@ let controller = require('../controllers/transactionController')
 /* GET All Data */
 router.get('/', controller.getAllData);
 
-// /* Form Add New Data */
-// router.get('/add', controller.formNewData)
-//
-// /* Create New Data */
-// router.post('/add', controller.createNewData)
+/* Form Add New Data */
+router.get('/add', controller.formNewData)
+
+/* Create New Data */
+router.post('/add', controller.createNewData)
 //
 // /* Edit Data */
 // // router.put('/:id/edit', controller.editData);

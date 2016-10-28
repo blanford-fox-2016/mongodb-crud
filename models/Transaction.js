@@ -9,10 +9,7 @@ var transactionsSchema = new Schema({
   due_date: { type: Date, default: Date.now },
   in_date: { type: Date, default: Date.now },
   fine: Number,
-  booklist: [
-    {isbn: String, qty: Number},
-    {isbn: String, qty: Number}
-  ]
+  booklist: [{ type: Schema.Types.ObjectId, ref: 'customers' }]
 })
 
 var transactions = mongoose.model('transactions', transactionsSchema)

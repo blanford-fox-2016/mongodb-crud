@@ -5,11 +5,12 @@ block content
     .container
       .jumbotron.text-center
         h1 Add New Transaction
-
-      form(action='/transaction' method='post')
+      form(action='/transaction/add' method='post')
         .form-group
           label.control-label(for='member_id') Member_ID
-          input#member_id.form-control(type='text', name='member_id')
+          select#memberid.form-control(name='memberid')
+            - for(var i = 0 ; i < customers.length ; i++)
+                option(value="#{customers[i]._id}") #{customers[i]._id} - #{customers[i].name}
         .form-group
           label.control-label(for='days') Days
           input#days.form-control(type='number', name='days')
@@ -25,6 +26,10 @@ block content
         .form-group
           label.control-label(for='fine') Fine
           input#fine.form-control(type='number', name='fine')
-
+        .form-group
+          label.control-label(for='booklist') Booklist (Press Alt (Mac) or Ctrl (Windows) to multiple select)
+          select#booklist.form-control(name='booklist' multiple)
+            - for(var i = 0 ; i < books.length ; i++)
+                option(value="#{books[i].title}") #{books[i].title}
         .form-group
           button.btn.btn-primary(type="submit") Submit
