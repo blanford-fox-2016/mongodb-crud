@@ -7,7 +7,8 @@ var booksSchema = new Schema({
   title: String,
   author:   String,
   category: String,
-  stock: Number
+  stock: Number,
+  transactions: [{ type: Schema.Types.ObjectId, ref: 'transactions' }]
 });
 
 var books = mongoose.model('books', booksSchema)

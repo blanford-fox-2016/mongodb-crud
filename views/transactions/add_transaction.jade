@@ -27,7 +27,7 @@ block content
           label.control-label(for='fine') Fine
           input#fine.form-control(type='number', name='fine')
         .form-group
-          label.control-label(for='booklist') Booklist (Press Alt (Mac) or Ctrl (Windows) to multiple select)
+          label.control-label(for='booklist') Booklist (Press ctrl to select)
           select#booklist.form-control(name='booklist' multiple)
             - for(var i = 0 ; i < books.length ; i++)
                 option(value="#{books[i].title}") #{books[i].title}
