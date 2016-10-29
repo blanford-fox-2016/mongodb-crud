@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Add New Book
+
+      form(action='/book/add' method='post')
+        .form-group
+          label.control-label(for='ISBN') ISBN
+          input#ISBN.form-control(type='text', name='isbn')
+        .form-group
+          label.control-label(for='title') Title
+          input#title.form-control(type='text', name='title')
+        .form-group
+          label.control-label(for='author') Author
+          input#author.form-control(type='text', name='author')
+        .form-group
+          label.control-label(for='category') Category
+          input#category.form-control(type='text', name='category')
+        .form-group
+          label.control-label(for='stock') Stock
+          input#stock.form-control(type='number', name='stock')
+
+        .form-group
+          button.btn.btn-primary(type="submit") Submit

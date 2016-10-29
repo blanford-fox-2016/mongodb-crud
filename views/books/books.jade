@@ -1,0 +1,53 @@
+extends ../layout
+
+block content
+  .row
+    .container
+      .jumbotron.text-center
+        h1 Books Management
+  .row
+
+    .container
+      a(href='/book/add', alt='View Details', class="btn btn-success") Add New Book
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th #
+            th ISBN
+            th Title
+            th Author
+            th Category
+            th Stock
+            th Action
+        tbody
+          - for(var i = 0 ; i < books.length ; i++)
+            tr
+              td #{i+1}
+              td #{books[i].isbn}
+              td #{books[i].title}
+              td #{books[i].author}
+              td #{books[i].category}
+              td #{books[i].stock}
+              td
+                a.btn.btn-success(href='#' alt='View Details')
+                  span.glyphicon.glyphicon-eye-open
+                a.btn.btn-warning(href='/book/#{books[i]._id}/edit' alt='Edit')
+                  span.glyphicon.glyphicon-edit
+                button.btn.btn-danger(type="button" href='book/#{books[i]._id}/delete' alt='Delete' data-toggle="modal" data-target="#deleteModal#{books[i]._id}")
+                  span.glyphicon.glyphicon-trash
+
+
+            .modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel' id='deleteModal#{books[i]._id}')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+                    h4#myModalLabel.modal-title Warning!
+                  .modal-body
+                      | Are you sure want to delete this '#{books[i].title}' book?
+                  .modal-footer
+                    form(action='/book/#{books[i]._id}/delete')
+                      input(type='hidden' name='_method' value='delete')
+                      button.btn.btn-default(type='button', data-dismiss='modal') Close
+                      button.btn.btn-danger(type='submit') Delete
