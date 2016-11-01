@@ -30,6 +30,6 @@ block content
           label.control-label(for='booklist') Booklist (Press ctrl to select)
           select#booklist.form-control(name='booklist' multiple)
             - for(var i = 0 ; i < books.length ; i++)
-                option(value="#{books[i].title}") #{books[i].title}
+                option(value="#{books[i]._id}")  #{books[i]._id} - #{books[i].title}
         .form-group
           button.btn.btn-primary(type="submit") Submit
