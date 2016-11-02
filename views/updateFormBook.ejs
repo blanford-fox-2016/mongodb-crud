@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MongoCrud</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 class="center">MongoCrud</h1>
+    <br><br>
+    <div class="container">
+      <!-- form -->
+      <form action="/api/book/update" method="post">
+        <div class="form-group">
+          <label for="isbn">isbn</label>
+          <input type="hidden" name="isbn" value="<%= books.isbn %>">
+          <input type="text" class="form-control" placeholder="ex: 1921-12312-12312" value="<%= books.isbn %>" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="form-control" placeholder="ex: The wisdom of toni chen" value="<%= books.title %>">
+        </div>
+
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" class="form-control" placeholder="ex: Toni Chen" value="<%= books.author %>">
+        </div>
+
+        <div class="form-group">
+          <label for="category">category</label>
+          <input type="text" name="category" class="form-control" placeholder="ex: New" value="<%= books.category %>">
+        </div>
+
+        <div class="form-group">
+          <label for="stock">stock</label>
+          <input type="text" name="stock" class="form-control" placeholder="ex: 10" value="<%= books.stock %>">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
